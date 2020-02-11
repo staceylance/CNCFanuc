@@ -45,9 +45,9 @@ N43 (Is the part Picked off, Press Cycle Start To Continue?)
 N44 M00
 N45 (Is the Tool Length Set, Press Cycle Start To Continue?)
 N46 M00
-N47 (Is the Tool Numbers Correct, Press Cycle Start To Continue)?)
+N47 (Is the Tool Numbers Correct, Press Cycle Start To Continue?)
 N48 M00
-N49 (Safety Goggles?, Press Cycle Start To Continue)?)
+N49 (Safety Goggles?, Press Cycle Start To Continue?)
 N50 M00
 N51 G0 G53 Z0.
 N52 G0 G53 X0.
