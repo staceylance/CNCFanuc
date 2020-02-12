@@ -7,7 +7,7 @@
 
 TODO
 
-- [ ] Drilling
+- [x] Drilling
 - [ ] Face Milling
 - [ ] Bore Milling
 - [ ] Witness? 
