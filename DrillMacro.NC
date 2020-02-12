@@ -8,7 +8,7 @@ N6 #103 = 54 (Pick Off Offset Number 54,55,56,etc. No Decimals)
 N7 #104 = 0. (Z Level of start of hole with decimal)
 N8 #105 = 1. (First Hole X Position)
 N9 #106 = 1. (First Hole Y Position)
-N10 (IF NO FURTHER HOLES, input "N" into Further Position Fields)
+N10 (IF NO FURTHER HOLES, input "50" into Further Position Fields)
 N11 #107 = 2. (Second Hole X Position)
 N12 #108 = 2. (Second Hole Y Position)
 N13 #109 = 3. (Third Hole X Position)
@@ -31,13 +31,13 @@ N29 IF [#116 GT 7.0] THEN #3000 = 3. (Third Hole Too Deep)
 N30 IF [#116 GT 7.0] THEN #3000 = 4. (Fourth Hole Too Deep)
 N31 IF [#116 GT 7.0] THEN #3000 = 5. (Fifth Hole Too Deep)
 N32 IF [#102 LE 0.25] THEN #121 = 0.025 (Sets Q Value For Drilling)
-N33 IF [#102 GT 0.25] AND [#102 LE 0.5] THEN #121 = 0.05 (Sets Q Value For Drilling)
+N33 IF [0.5 GE #102 GT 0.25] THEN #121 = 0.05 (Sets Q Value For Drilling)
 N34 IF [#102 GT 0.5] THEN #121 = 0.075 (Sets Q Value For Drilling)
 N35 IF [#102 LE 0.25] THEN #122 = 0.2 (Sets Feed Rate For Drilling)
-N36 IF [#102 GT 0.25] AND [#102 LE 0.5] THEN #122 = 0.4 (Sets Feed Rate For Drilling)
+N36 IF [0.5 GE #102 GT 0.25] THEN #122 = 0.4 (Sets Feed Rate For Drilling)
 N37 IF [#102 GT 0.5] THEN #122 = 0.6 (Sets Feed Rate For Drilling)
 N38 IF [#102 LE 0.25] THEN #123 = 500 (Sets Spindle Speed For Drilling)
-N39 IF [#102 GT 0.25] AND [#102 LE 0.5] THEN #123 = 300 (Sets Spindle Speed For Drilling)
+N39 IF [0.5 GE #102 GT 0.25] THEN #123 = 300 (Sets Spindle Speed For Drilling)
 N40 IF [#102 GT 0.5] THEN #123 = 200 (Sets Spindle Speed For Drilling)
 N41 (Is the part Picked off?)
 N42 M00
@@ -59,10 +59,10 @@ N57 (Tip of Tool Should Be 2in Above Part)
 N58 M00
 N59 G81 X#105 Y#106 Z[#104 - 0.075] R[#104 + 0.2] F2.
 N60 G0 G90 Z[#104 + 2]
-N61 IF [#107 NE "N"] GOTO84
-N62 IF [#109 NE "N"] GOTO87
-N63 IF [#111 NE "N"] GOTO90
-N64 IF [#113 NE "N"] GOTO93
+N61 IF [#107 NE 50] GOTO85
+N62 IF [#109 NE 50] GOTO88
+N63 IF [#111 NE 50] GOTO91
+N64 IF [#113 NE 50] GOTO94
 N65 G0 G90 G53 Z0.
 N66 G0 X0.
 N67 G0 Y0.
@@ -74,10 +74,10 @@ N72 (Tip of Tool Should Be 2in Above Part)
 N73 M00
 N74 G83 X#105 Y#106 Z[#104 - #116] R[#104 + 0.2] F#122 Q#121
 N75 G0 G90 Z[#104 + 2]
-N76 IF [#107 NE "N"] GOTO96
-N77 IF [#109 NE "N"] GOTO100
-N78 IF [#111 NE "N"] GOTO103
-N79 IF [#113 NE "N"] GOTO106
+N76 IF [#107 NE 50] GOTO97
+N77 IF [#109 NE 50] GOTO100
+N78 IF [#111 NE 50] GOTO103
+N79 IF [#113 NE 50] GOTO106
 N80 G0 G90 G53 Z0.
 N81 G0 X0.
 N82 G0 Y0.
